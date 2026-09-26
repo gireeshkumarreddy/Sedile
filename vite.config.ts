@@ -75,6 +75,8 @@ function renderSink(): Plugin {
 }
 
 export default defineConfig({
+  // '/' locally; the GitHub Pages workflow builds with BASE_PATH=/<repo>/
+  base: process.env.BASE_PATH || '/',
   plugins: [react(), renderSink()],
   build: {
     chunkSizeWarningLimit: 900,

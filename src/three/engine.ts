@@ -167,7 +167,7 @@ export class Engine {
    */
   private async loadEnvironment(r: WebGLRenderer) {
     try {
-      const a = await loadEnvAtlas('/env/studio.rgbe.png')
+      const a = await loadEnvAtlas(import.meta.env.BASE_URL + 'env/studio.rgbe.png')
       if (!this.renderer) return
       const t = new DataTexture(a.data, a.width, a.height, RGBAFormat, HalfFloatType)
       t.mapping = CubeUVReflectionMapping

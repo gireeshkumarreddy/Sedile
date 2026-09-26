@@ -29,7 +29,8 @@ export function bootEngine() {
   if (!r) return
 
   // hero chairs for the current layout (or, off the homepage, nothing hero-specific)
-  const heroSlots = location.pathname === '/' ? pickLayout(innerWidth, innerHeight).slots : []
+  const home = import.meta.env.BASE_URL.replace(/\/$/, '').toLowerCase()
+  const heroSlots = location.pathname.replace(/\/$/, '').toLowerCase() === home ? pickLayout(innerWidth, innerHeight).slots : []
   const heroShapes = heroSlots.map((s) => bySlug(s.slug)).filter((p): p is NonNullable<typeof p> => !!p).map((p) => shapeFor(p))
   const templates = Promise.all(heroShapes.map((s) => ensureTemplate(s)))
 

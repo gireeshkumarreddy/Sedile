@@ -24,7 +24,7 @@ const S = (el: ReactNode) => <Suspense fallback={<div className="page-loading" a
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />

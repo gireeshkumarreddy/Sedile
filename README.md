@@ -9,6 +9,11 @@ npm run dev        # http://localhost:5173
 npm run build      # type-check + production build to dist/
 ```
 
+**Live:** https://gireeshkumarreddy.github.io/Sedile/ — every push to `main` is built and deployed
+to GitHub Pages by `.github/workflows/deploy.yml`. The site is built with `BASE_PATH=/Sedile/`
+(all asset URLs and the router respect `import.meta.env.BASE_URL`), and `404.html` is a copy of
+`index.html` so deep links such as `/Sedile/products/<slug>` load the app.
+
 ## What's inside
 
 | Area | Where |
